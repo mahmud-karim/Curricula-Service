@@ -1,0 +1,57 @@
+logging:
+  level:
+    org:
+      hibernate: INFO
+      springframework:
+        web: DEBUG
+    root: ALL
+spring:
+  profiles:
+    active: ${DEPLOYMENT_STAGE:dev}
+  application:
+    name: curricula-service
+
+  
+    
+---
+spring:
+  profiles: dev    
+  datasource:
+    driverClassName: org.postgresql.Driver
+    initialization-mode: NEVER
+    password: ${DB_PASSWORD}
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    generate-ddl: false
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        default_schema: ${DB_SCHEMA:curricula_service}
+    show-sql: false
+server:
+  port: 1910
+---
+spring:
+  profiles: uat    
+  datasource:
+    driverClassName: org.postgresql.Driver
+    initialization-mode: NEVER
+    password: ${DB_PASSWORD}
+    url: ${DB_URL}
+    username: ${DB_USERNAME}
+    
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    generate-ddl: false
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        default_schema: ${DB_SCHEMA:curricula_service}
+    show-sql: false
+server:
+  port: 8080   
