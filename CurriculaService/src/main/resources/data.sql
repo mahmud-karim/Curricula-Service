@@ -1,0 +1,1 @@
+insert into test (test_name) values ('Hello');
