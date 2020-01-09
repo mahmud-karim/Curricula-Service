@@ -1,10 +1,15 @@
 package com.revature.models;
 
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Table(name = "curriculum")
@@ -18,6 +23,12 @@ public class Curriculum {
 	
 	@Column(name = "curriculum_name")
 	private String curriculumName;
+	
+	@ManyToMany
+	@JoinTable(name = "curriculum_skill",
+			joinColumns = @JoinColumn(name = "curriculum", referencedColumnName = "curriculum_id"),
+			inverseJoinColumns = @JoinColumn(name = "skill", referencedColumnName = "skill_id"))
+	private Set<Skill> skills;
 
 	public Curriculum() {
 		super();
