@@ -6,12 +6,13 @@ import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.revature.models.Category;
 import com.revature.models.Skill;
 import com.revature.services.SkillService;
 
@@ -35,8 +36,8 @@ public class SkillController {
 		return ss.saveNewSkill(newSkill);
 	}
 	
-	@GetMapping("/byCategory")
-	public List<Skill> getSkillsByCategory(@RequestParam int categoryId){
+	@GetMapping("/byCategory/{categoryId}")
+	public List<Skill> getSkillsByCategory(@PathVariable Category categoryId){
 		return ss.getSkillsByCategory(categoryId);
 	}
 	
