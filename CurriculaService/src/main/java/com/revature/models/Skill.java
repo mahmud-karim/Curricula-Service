@@ -1,5 +1,7 @@
 package com.revature.models;
 
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -7,8 +9,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -25,8 +29,15 @@ public class Skill {
 	private String skillName;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "category", referencedColumnName = "category_id")
-	private Category category;
+	@JoinColumn(name = "category", referencedColumnName ="category_id")
+	private Category category; 
+	
+	@ManyToMany
+	@JoinTable(name = "curriculum_skill", 
+	joinColumns = @JoinColumn(name = "skill", referencedColumnName = "skill_id"),
+	inverseJoinColumns = @JoinColumn(name = "curriculum", referencedColumnName = "curriculum_id"))
+	private Set<Curriculum> curriculum;
+	
 
 	/**
 	 * 
