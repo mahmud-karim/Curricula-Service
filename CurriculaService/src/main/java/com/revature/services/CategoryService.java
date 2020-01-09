@@ -2,7 +2,7 @@ package com.revature.services;
 
 import javax.validation.Valid;
 
-import models.Category;
+import com.revature.models.Category;
 
 
 public interface CategoryService {

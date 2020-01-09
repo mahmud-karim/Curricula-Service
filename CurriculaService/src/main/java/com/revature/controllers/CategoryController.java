@@ -8,13 +8,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.revature.models.Category;
 import com.revature.services.CategoryService;
 
-import models.Category;
-
 @RestController
-@RequestMapping("/category")
+@RequestMapping("category")
 public class CategoryController {
+	
 	private CategoryService cs;
 	
 	@Autowired
@@ -22,8 +22,8 @@ public class CategoryController {
 		this.cs = cs;
 	}
 	
-	@PostMapping("/")
-	public Category saveNewCategory(@Valid @RequestBody Category newCategory) {
+	@PostMapping
+	public Category saveNewCategory( @RequestBody Category newCategory) {
 		return cs.saveNewCategory(newCategory);
 	}
 	
