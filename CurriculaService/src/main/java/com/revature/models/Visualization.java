@@ -13,7 +13,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.JoinColumn;
 
-@Table(name = "visualization", schema = "curricula")
+@Table(name = "visualization")
 @Entity
 public class Visualization {
 	@Id
@@ -25,7 +25,7 @@ public class Visualization {
 	private String visualizationName;
 	
 	@ManyToMany(fetch = FetchType.EAGER)
-	@JoinTable(name = "visualization_curriculum", schema = "curricula",
+	@JoinTable(name = "visualization_curriculum",
 				joinColumns = @JoinColumn(name = "visualization", referencedColumnName = "visualization_id"),
 				inverseJoinColumns = @JoinColumn(name = "curriculum", referencedColumnName = "curriculum_id"))
 	private Set<Curriculum> curricula;
