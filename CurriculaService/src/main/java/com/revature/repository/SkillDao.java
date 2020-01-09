@@ -9,8 +9,6 @@ import com.revature.models.Skill;
 @Repository
 public interface SkillDao extends JpaRepository<Skill, Integer>{
 
-	List<Skill> findSkillByCurriculumId(int curriculumId);
-
-	List<Skill> findSkillByCategoryId(int categoryId);
+	List<Skill> findSkillByCategory(int categoryId);
 
 }

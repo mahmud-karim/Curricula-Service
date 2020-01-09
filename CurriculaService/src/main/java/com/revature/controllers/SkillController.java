@@ -30,11 +30,6 @@ public class SkillController {
 		return ss.getAllSkills();
 	}
 	
-	@GetMapping("/byCurriculum")
-	public List<Skill> getSkillsByCurriculum(@RequestParam int curriculumId){
-		return ss.getSkillsByCurriculum(curriculumId);
-	}
-	
 	@PostMapping("/")
 	public Skill saveNewSkill(@Valid @RequestBody Skill newSkill) {
 		return ss.saveNewSkill(newSkill);
@@ -42,7 +37,7 @@ public class SkillController {
 	
 	@GetMapping("/byCategory")
 	public List<Skill> getSkillsByCategory(@RequestParam int categoryId){
-		return ss.getSkillsByCategor(categoryId);
+		return ss.getSkillsByCategory(categoryId);
 	}
 	
 	
