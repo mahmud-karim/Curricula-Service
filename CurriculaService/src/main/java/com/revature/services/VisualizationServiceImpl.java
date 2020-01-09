@@ -19,7 +19,7 @@ public class VisualizationServiceImpl implements VisualizationService{
 	@Override
 	public Visualization findVisualizationById(int id) {
 		// TODO Auto-generated method stub
-		return vd.findVisualizationById(id);
+		return vd.getOne(id);
 	}
 
 	@Override
