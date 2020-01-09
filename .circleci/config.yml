@@ -2,9 +2,6 @@ version: 2.1
 
 jobs:
   build:
-    branches:
-      only:
-        - dev
     docker:
       - image: 'circleci/openjdk:8-jdk'
     steps:
@@ -20,4 +17,8 @@ workflows:
   main:
     jobs:
       - build:
+          filters:
+            branches:
+              only:
+                - dev
           context: SonarCloud
