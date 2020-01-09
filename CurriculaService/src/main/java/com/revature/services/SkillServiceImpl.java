@@ -37,7 +37,7 @@ public class SkillServiceImpl implements SkillService{
 	}
 
 	@Override
-	public List<Skill> getSkillsByCategor(int categoryId) {
+	public List<Skill> getSkillsByCategory(int categoryId) {
 		// TODO Auto-generated method stub
 		return sd.findSkillByCategoryId(categoryId);
 	}

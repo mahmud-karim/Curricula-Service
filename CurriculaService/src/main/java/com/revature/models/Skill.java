@@ -26,7 +26,7 @@ public class Skill {
 	
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "category", referencedColumnName = "category_id")
-	private int category;
+	private Category category;
 
 	/**
 	 * 
@@ -40,8 +40,7 @@ public class Skill {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + category;
-		result = prime * result + curriculum;
+		result = prime * result + ((category == null) ? 0 : category.hashCode());
 		result = prime * result + ((skillName == null) ? 0 : skillName.hashCode());
 		result = prime * result + skillSerial;
 		return result;
@@ -56,9 +55,10 @@ public class Skill {
 		if (getClass() != obj.getClass())
 			return false;
 		Skill other = (Skill) obj;
-		if (category != other.category)
-			return false;
-		if (curriculum != other.curriculum)
+		if (category == null) {
+			if (other.category != null)
+				return false;
+		} else if (!category.equals(other.category))
 			return false;
 		if (skillName == null) {
 			if (other.skillName != null)
@@ -74,14 +74,12 @@ public class Skill {
 	 * @param skillSerial
 	 * @param skillName
 	 * @param category
-	 * @param curriculum
 	 */
-	public Skill(int skillSerial, String skillName, int category, int curriculum) {
+	public Skill(int skillSerial, String skillName, Category category) {
 		super();
 		this.skillSerial = skillSerial;
 		this.skillName = skillName;
 		this.category = category;
-		this.curriculum = curriculum;
 	}
 
 	public int getSkillSerial() {
@@ -100,30 +98,21 @@ public class Skill {
 		this.skillName = skillName;
 	}
 
-	public int getCategory() {
+	public Category getCategory() {
 		return category;
 	}
 
-	public void setCategory(int category) {
+	public void setCategory(Category category) {
 		this.category = category;
-	}
-
-	public int getCurriculum() {
-		return curriculum;
-	}
-
-	public void setCurriculum(int curriculum) {
-		this.curriculum = curriculum;
 	}
 
 	@Override
 	public String toString() {
 		return "Skill [skillSerial=" + skillSerial + ", skillName=" + skillName + ", category=" + category
-				+ ", curriculum=" + curriculum + ", hashCode()=" + hashCode() + ", getSkillSerial()=" + getSkillSerial()
-				+ ", getSkillName()=" + getSkillName() + ", getCategory()=" + getCategory() + ", getCurriculum()="
-				+ getCurriculum() + ", getClass()=" + getClass() + ", toString()=" + super.toString() + "]";
+				+ ", hashCode()=" + hashCode() + ", getSkillSerial()=" + getSkillSerial() + ", getSkillName()="
+				+ getSkillName() + ", getCategory()=" + getCategory() + ", getClass()=" + getClass() + ", toString()="
+				+ super.toString() + "]";
 	}
-
 	
 	
 }
