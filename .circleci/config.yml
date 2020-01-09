@@ -7,11 +7,10 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Move to right directory
-          command: cd ./CurriculaService
-      - run:
           name: Analyze on SonarCloud
-          command: mvn verify sonar:sonar
+          command: |
+           cd ./CurriculaService
+           mvn verify sonar:sonar
 
 workflows:
   main:
