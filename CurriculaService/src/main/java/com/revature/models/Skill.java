@@ -11,7 +11,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="skill", schema="curricula")
+@Table(name="skill")
 public class Skill {
 	
 	@Id
