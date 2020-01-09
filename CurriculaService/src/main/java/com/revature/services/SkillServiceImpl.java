@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.revature.models.Skill;
-import com.revature.repositories.SkillDao;
+import com.revature.repository.SkillDao;
 
 @Service
 public class SkillServiceImpl implements SkillService{
