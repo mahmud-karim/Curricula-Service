@@ -9,7 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Table(name = "category", schema = "curricula")
+@Table(name = "category")
 @Entity
 public class Category{
 	
