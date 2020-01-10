@@ -32,7 +32,7 @@ public class SkillControllerTests {
 	private SkillService ss;
 
 	@Test
-	public void testSaveNewCategory() throws Exception{
+	public void testGetAllSkills() throws Exception{
 		
 		Category mockCategory = new Category(1, "Programing Language");
 		List<Skill> mockSkillList = new ArrayList<>();

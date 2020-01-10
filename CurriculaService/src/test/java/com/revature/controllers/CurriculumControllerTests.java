@@ -50,22 +50,6 @@ public class CurriculumControllerTests {
 	}
 	
 	@Test
-	public void testGetByName() throws Exception{
-		
-		Category mockCategory = new Category(1, "Programing Language");
-		List<Skill> mockSkillList = new ArrayList<>();
-		mockSkillList.add(new Skill(1,"Java",mockCategory));
-		Curriculum mockCurriculum = new Curriculum(1, "JavaReact", mockSkillList);
-		
-		when(cs.getByCurriculumName(Mockito.anyString())).thenReturn(mockCurriculum);
-		
-		mockMvc.perform(get("/curricula/name")
-				.param("curriculumName", "FullStack")
-				.contentType("application/json"))
-				.andExpect(status().isOk());
-	}
-	
-	@Test
 	public void testCreate() throws Exception{
 		Category mockCategory = new Category(1, "Programing Language");
 		List<Skill> mockSkillList = new ArrayList<>();
