@@ -13,6 +13,7 @@ import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -48,7 +49,7 @@ public class VisualizationControllerTests {
 		when(vs.getAllVisualization()).thenReturn(mockVisualizationList);
 		
 		mockMvc.perform(get("/visualizations")
-		        .contentType("application/json"))
+		        .contentType(MediaType.APPLICATION_JSON))
 		        .andExpect(status().isOk());
 	}
 	
@@ -65,7 +66,7 @@ public class VisualizationControllerTests {
 		when(vs.findVisualizationByVisualizationName(Mockito.anyString())).thenReturn(mockVisualization);
 		
 		mockMvc.perform(get("/visualizations/CapGemini")
-		        .contentType("application/json"))
+		        .contentType(MediaType.APPLICATION_JSON))
 		        .andExpect(status().isOk());
 	}
 	
@@ -80,8 +81,8 @@ public class VisualizationControllerTests {
 		
 		when(vs.createVisualization(Mockito.any(Visualization.class))).thenReturn(mockVisualization);
 		
-		mockMvc.perform(post("/curricula")
-				.contentType("application/json")
+		mockMvc.perform(post("/visualizations")
+				.contentType(MediaType.APPLICATION_JSON)
 				.content(objectMapper.writeValueAsString(mockVisualization)))
 				.andExpect(status().isOk());
 	}

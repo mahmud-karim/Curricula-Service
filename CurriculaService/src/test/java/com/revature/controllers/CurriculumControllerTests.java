@@ -13,6 +13,7 @@ import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -45,7 +46,7 @@ public class CurriculumControllerTests {
 		when(cs.getAllCurriculum()).thenReturn(mockCurriculumList);
 		
 		mockMvc.perform(get("/curricula")
-		        .contentType("application/json"))
+		        .contentType(MediaType.APPLICATION_JSON))
 		        .andExpect(status().isOk());
 	}
 	
@@ -59,7 +60,7 @@ public class CurriculumControllerTests {
 		when(cs.createCurriculum(Mockito.any(Curriculum.class))).thenReturn(mockCurriculum);
 		
 		mockMvc.perform(post("/curricula")
-				.contentType("application/json")
+				.contentType(MediaType.APPLICATION_JSON)
 				.content(objectMapper.writeValueAsString(mockCurriculum)))
 				.andExpect(status().isOk());
 	}

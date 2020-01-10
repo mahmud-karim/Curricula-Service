@@ -1,6 +1,7 @@
 package com.revature.controllers;
 
 import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -12,6 +13,7 @@ import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -40,8 +42,8 @@ public class SkillControllerTests {
 		
 		when(ss.getAllSkills()).thenReturn(mockSkillList);
 		
-		mockMvc.perform(post("/skills")
-		        .contentType("application/json"))
+		mockMvc.perform(get("/skill")
+		        .contentType(MediaType.APPLICATION_JSON))
 		        .andExpect(status().isOk());
 	}
 	
@@ -53,8 +55,8 @@ public class SkillControllerTests {
 		
 		when(ss.saveNewSkill(Mockito.any(Skill.class))).thenReturn(mockSkill);
 		
-		mockMvc.perform(post("/skills")
-				.contentType("application/json")
+		mockMvc.perform(post("/skill")
+				.contentType(MediaType.APPLICATION_JSON)
 				.content(objectMapper.writeValueAsString(mockSkill)))
 				.andExpect(status().isOk());
 	}

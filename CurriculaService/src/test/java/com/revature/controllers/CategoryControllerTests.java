@@ -32,9 +32,9 @@ public class CategoryControllerTests {
 	public void testSaveNewCategory() throws Exception{
 		
 		Category mockCategory = new Category(1, "Programing Language");
-		when(cs.saveNewCategory(new Category(1, "Programing Language"))).thenReturn(mockCategory);
+		when(cs.saveNewCategory(Mockito.any(Category.class))).thenReturn(mockCategory);
 		
-		mockMvc.perform(post("/category")
+		mockMvc.perform(post("/categories")
 		        .contentType(MediaType.APPLICATION_JSON)
 		        .content(objectMapper.writeValueAsString(mockCategory)))
 		        .andExpect(status().isOk());
