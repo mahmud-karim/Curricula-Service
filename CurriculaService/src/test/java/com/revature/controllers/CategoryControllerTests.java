@@ -9,6 +9,7 @@ import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -31,10 +32,10 @@ public class CategoryControllerTests {
 	public void testSaveNewCategory() throws Exception{
 		
 		Category mockCategory = new Category(1, "Programing Language");
-		when(cs.saveNewCategory(Mockito.any(Category.class))).thenReturn(mockCategory);
+		when(cs.saveNewCategory(new Category(1, "Programing Language"))).thenReturn(mockCategory);
 		
-		mockMvc.perform(post("/categories")
-		        .contentType("application/json")
+		mockMvc.perform(post("/category")
+		        .contentType(MediaType.APPLICATION_JSON)
 		        .content(objectMapper.writeValueAsString(mockCategory)))
 		        .andExpect(status().isOk());
 	}
