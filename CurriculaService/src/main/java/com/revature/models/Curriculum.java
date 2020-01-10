@@ -32,7 +32,6 @@ public class Curriculum {
 
 	public Curriculum() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Curriculum(int curriculumId, String curriculumName) {

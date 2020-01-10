@@ -20,7 +20,6 @@ public class CategoryServiceImpl implements CategoryService{
 
 	@Override
 	public Category saveNewCategory(@Valid Category newCategory) {
-		// TODO Auto-generated method stub
 		return cd.save(newCategory);
 	}
 	

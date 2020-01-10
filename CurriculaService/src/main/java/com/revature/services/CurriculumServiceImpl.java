@@ -21,19 +21,16 @@ public class CurriculumServiceImpl implements CurriculumService {
 
 	@Override
 	public Curriculum createCurriculum(@Valid Curriculum newCurriculum) {
-		// TODO Auto-generated method stub
 		return cd.save(newCurriculum);
 	}
 
 	@Override
 	public List<Curriculum> getAllCurriculum() {
-		// TODO Auto-generated method stub
 		return cd.findAll();
 	}
 
 	@Override
 	public Curriculum getByCurriculumName(String curriculumName) {
-		// TODO Auto-generated method stub
 		return cd.findCurriculumByCurriculumName(curriculumName);
 	}
 
