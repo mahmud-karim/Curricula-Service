@@ -53,7 +53,7 @@ public class VisualizationControllerTests {
 	}
 	
 	@Test
-	public void testFindVisualizationByName() throws Exception{
+	public void testFindVisualizationByVisualizationName() throws Exception{
 		
 		Category mockCategory = new Category(1, "Programing Language");
 		List<Skill> mockSkillList = new ArrayList<>();
@@ -62,7 +62,7 @@ public class VisualizationControllerTests {
 		mockCurriculumList.add(new Curriculum(1, "JavaReact", mockSkillList));
 		Visualization mockVisualization = new Visualization(1, "CapGemini", mockCurriculumList);
 		
-		when(vs.findVisualizationByName(Mockito.anyString())).thenReturn(mockVisualization);
+		when(vs.findVisualizationByVisualizationName(Mockito.anyString())).thenReturn(mockVisualization);
 		
 		mockMvc.perform(get("/visualizations/CapGemini")
 		        .contentType("application/json"))
