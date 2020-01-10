@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -27,9 +29,13 @@ public class VisualizationController {
 		return vs.getAllVisualization();
 	}
 	
-	@GetMapping("{id}")
-	public Visualization findVisualizationById(@PathVariable int id) {
-		return vs.findVisualizationById(id);
+	@GetMapping("{name}")
+	public Visualization findVisualizationByName(@PathVariable String name) {
+		return vs.findVisualizationByVisualizationName(name);
+	}
+	@PostMapping
+	public Visualization createVisualization(@RequestBody Visualization v) {
+		return vs.createVisualization(v);
 	}
 
 }
