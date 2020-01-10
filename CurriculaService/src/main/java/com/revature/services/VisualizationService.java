@@ -9,9 +9,11 @@ import com.revature.models.Visualization;
 
 public interface VisualizationService {
 
-	public Visualization findVisualizationById(int id);
+	public Visualization findVisualizationByVisualizationName(String name);
 
 	public List<Visualization> getAllVisualization();
+
+	public Visualization createVisualization(Visualization v);
 
 	
 
