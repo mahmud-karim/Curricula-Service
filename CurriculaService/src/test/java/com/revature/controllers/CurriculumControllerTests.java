@@ -1,6 +1,7 @@
 package com.revature.controllers;
 
 import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -8,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -18,7 +20,6 @@ import com.revature.models.Category;
 import com.revature.models.Curriculum;
 import com.revature.models.Skill;
 import com.revature.services.CurriculumService;
-import com.revature.services.SkillService;
 
 @WebMvcTest(controllers = CurriculumController.class)
 public class CurriculumControllerTests {
@@ -33,7 +34,7 @@ public class CurriculumControllerTests {
 	private CurriculumService cs;
 
 	@Test
-	public void testSaveNewCategory() throws Exception{
+	public void testGetAll() throws Exception{
 		
 		Category mockCategory = new Category(1, "Programing Language");
 		List<Skill> mockSkillList = new ArrayList<>();
@@ -43,8 +44,39 @@ public class CurriculumControllerTests {
 		
 		when(cs.getAllCurriculum()).thenReturn(mockCurriculumList);
 		
-		mockMvc.perform(post("/skills")
+		mockMvc.perform(get("/curricula")
 		        .contentType("application/json"))
 		        .andExpect(status().isOk());
+	}
+	
+	@Test
+	public void testGetByName() throws Exception{
+		
+		Category mockCategory = new Category(1, "Programing Language");
+		List<Skill> mockSkillList = new ArrayList<>();
+		mockSkillList.add(new Skill(1,"Java",mockCategory));
+		Curriculum mockCurriculum = new Curriculum(1, "JavaReact", mockSkillList);
+		
+		when(cs.getByCurriculumName(Mockito.anyString())).thenReturn(mockCurriculum);
+		
+		mockMvc.perform(get("/curricula/name")
+				.param("curriculumName", "FullStack")
+				.contentType("application/json"))
+				.andExpect(status().isOk());
+	}
+	
+	@Test
+	public void testCreate() throws Exception{
+		Category mockCategory = new Category(1, "Programing Language");
+		List<Skill> mockSkillList = new ArrayList<>();
+		mockSkillList.add(new Skill(1,"Java",mockCategory));
+		Curriculum mockCurriculum = new Curriculum(1, "JavaReact", mockSkillList);
+		
+		when(cs.createCurriculum(Mockito.any(Curriculum.class))).thenReturn(mockCurriculum);
+		
+		mockMvc.perform(post("/curricula")
+				.contentType("application/json")
+				.content(objectMapper.writeValueAsString(mockCurriculum)))
+				.andExpect(status().isOk());
 	}
 }
