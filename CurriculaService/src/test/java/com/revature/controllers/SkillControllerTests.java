@@ -42,7 +42,7 @@ public class SkillControllerTests {
 		
 		when(ss.getAllSkills()).thenReturn(mockSkillList);
 		
-		mockMvc.perform(get("/skill")
+		mockMvc.perform(get("/skills")
 		        .contentType(MediaType.APPLICATION_JSON))
 		        .andExpect(status().isOk());
 	}
@@ -55,7 +55,7 @@ public class SkillControllerTests {
 		
 		when(ss.saveNewSkill(Mockito.any(Skill.class))).thenReturn(mockSkill);
 		
-		mockMvc.perform(post("/skill")
+		mockMvc.perform(post("/skills")
 				.contentType(MediaType.APPLICATION_JSON)
 				.content(objectMapper.writeValueAsString(mockSkill)))
 				.andExpect(status().isOk());
