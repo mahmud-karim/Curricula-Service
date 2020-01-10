@@ -1,7 +1,5 @@
 package com.revature.models;
 
-import java.io.Serializable;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -23,7 +21,6 @@ public class Category{
 
 	public Category() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Category(int categoryId, String categoryName) {

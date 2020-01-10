@@ -1,10 +1,6 @@
-package com.revature.repository;
-
-import java.util.List;
+package com.revature.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
 
 import com.revature.models.Curriculum;
 

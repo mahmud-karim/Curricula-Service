@@ -28,3 +28,34 @@ insert into skill
 			(19, 'Visual Studio Code', 6),
 			(20, 'Postman', 6),
 			(21, 'React', 1);
+insert into curriculum
+	values (1, 'FullStack'),
+			(2, '.Net'),
+			(3, 'CyberSecurity');
+insert into visualization
+	values (1, 'HitachiConsulting'),
+			(2, 'CollegeBoard'),
+			(3, 'Cognizant');
+insert into curriculum_skill
+	values (1, 4),
+			(1, 5),
+			(1, 7),
+			(1, 19),
+			(2, 2),
+			(2, 3),
+			(2, 11),
+			(2, 20),
+			(3, 1),
+			(3, 6),
+			(3, 12),
+			(3, 18);
+insert into visualization_curriculum
+	values (1, 1),
+			(1, 2),
+			(1, 3),
+			(2, 1),
+			(2, 2),
+			(2, 3),
+			(3, 1),
+			(3, 2),
+			(3, 3);

@@ -1,6 +1,6 @@
 package com.revature.models;
 
-import java.util.Set;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -28,11 +28,10 @@ public class Visualization {
 	@JoinTable(name = "visualization_curriculum",
 				joinColumns = @JoinColumn(name = "visualization", referencedColumnName = "visualization_id"),
 				inverseJoinColumns = @JoinColumn(name = "curriculum", referencedColumnName = "curriculum_id"))
-	private Set<Curriculum> curricula;
+	private List<Curriculum> curricula;
 
 	public Visualization() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public int getVisualizationId() {
@@ -51,15 +50,15 @@ public class Visualization {
 		this.visualizationName = visualizationName;
 	}
 
-	public Set<Curriculum> getCurricula() {
+	public List<Curriculum> getCurricula() {
 		return curricula;
 	}
 
-	public void setCurricula(Set<Curriculum> curricula) {
+	public void setCurricula(List<Curriculum> curricula) {
 		this.curricula = curricula;
 	}
 
-	public Visualization(int visualizationId, String visualizationName, Set<Curriculum> curricula) {
+	public Visualization(int visualizationId, String visualizationName, List<Curriculum> curricula) {
 		super();
 		this.visualizationId = visualizationId;
 		this.visualizationName = visualizationName;
@@ -68,13 +67,15 @@ public class Visualization {
 
 	@Override
 	public String toString() {
-		return "Visualization [visualizationId=" + visualizationId + ", visualizationName=" + visualizationName + "]";
+		return "Visualization [visualizationId=" + visualizationId + ", visualizationName=" + visualizationName
+				+ ", curricula=" + curricula + "]";
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + ((curricula == null) ? 0 : curricula.hashCode());
 		result = prime * result + visualizationId;
 		result = prime * result + ((visualizationName == null) ? 0 : visualizationName.hashCode());
 		return result;
@@ -89,6 +90,11 @@ public class Visualization {
 		if (getClass() != obj.getClass())
 			return false;
 		Visualization other = (Visualization) obj;
+		if (curricula == null) {
+			if (other.curricula != null)
+				return false;
+		} else if (!curricula.equals(other.curricula))
+			return false;
 		if (visualizationId != other.visualizationId)
 			return false;
 		if (visualizationName == null) {
@@ -98,6 +104,5 @@ public class Visualization {
 			return false;
 		return true;
 	}
-	
 	
 }

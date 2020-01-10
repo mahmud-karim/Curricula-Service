@@ -21,11 +21,11 @@ public class VisualizationServiceImpl implements VisualizationService{
 	public Visualization findVisualizationByVisualizationName(String name) {
 		// TODO Auto-generated method stub
 		return vd.findVisualizationByVisualizationName(name);
+
 	}
 
 	@Override
 	public List<Visualization> getAllVisualization() {
-		// TODO Auto-generated method stub
 		return vd.findAll();
 	}
 

@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.revature.models.Curriculum;
-import com.revature.repository.CurriculumDao;
+import com.revature.repositories.CurriculumDao;
 
 @Service
 public class CurriculumServiceImpl implements CurriculumService {
@@ -21,19 +21,16 @@ public class CurriculumServiceImpl implements CurriculumService {
 
 	@Override
 	public Curriculum createCurriculum(@Valid Curriculum newCurriculum) {
-		// TODO Auto-generated method stub
 		return cd.save(newCurriculum);
 	}
 
 	@Override
 	public List<Curriculum> getAllCurriculum() {
-		// TODO Auto-generated method stub
 		return cd.findAll();
 	}
 
 	@Override
 	public Curriculum getByCurriculumName(String curriculumName) {
-		// TODO Auto-generated method stub
 		return cd.findCurriculumByCurriculumName(curriculumName);
 	}
 
