@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.revature.models.Category;
-import com.revature.repository.CategoryDao;
+import com.revature.repositories.CategoryDao;
 
 
 @Service

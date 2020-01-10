@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -24,7 +25,7 @@ public class Curriculum {
 	@Column(name = "curriculum_name")
 	private String curriculumName;
 	
-	@ManyToMany
+	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "curriculum_skill",
 			joinColumns = @JoinColumn(name = "curriculum", referencedColumnName = "curriculum_id"),
 			inverseJoinColumns = @JoinColumn(name = "skill", referencedColumnName = "skill_id"))
@@ -32,30 +33,6 @@ public class Curriculum {
 
 	public Curriculum() {
 		super();
-	}
-
-	public int getCurriculumId() {
-		return curriculumId;
-	}
-
-	public void setCurriculumId(int curriculumId) {
-		this.curriculumId = curriculumId;
-	}
-
-	public String getCurriculumName() {
-		return curriculumName;
-	}
-
-	public void setCurriculumName(String curriculumName) {
-		this.curriculumName = curriculumName;
-	}
-
-	public List<Skill> getSkills() {
-		return skills;
-	}
-
-	public void setSkills(List<Skill> skills) {
-		this.skills = skills;
 	}
 
 	public Curriculum(int curriculumId, String curriculumName, List<Skill> skills) {
@@ -103,6 +80,30 @@ public class Curriculum {
 		} else if (!skills.equals(other.skills))
 			return false;
 		return true;
+	}
+  
+	public int getCurriculumId() {
+		return curriculumId;
+	}
+
+	public void setCurriculumId(int curriculumId) {
+		this.curriculumId = curriculumId;
+	}
+
+	public String getCurriculumName() {
+		return curriculumName;
+	}
+
+	public void setCurriculumName(String curriculumName) {
+		this.curriculumName = curriculumName;
+	}
+
+	public List<Skill> getSkills() {
+		return skills;
+	}
+
+	public void setSkills(List<Skill> skills) {
+		this.skills = skills;
 	}
 
 }
