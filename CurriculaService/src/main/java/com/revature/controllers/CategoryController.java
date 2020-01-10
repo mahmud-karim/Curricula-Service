@@ -10,7 +10,7 @@ import com.revature.models.Category;
 import com.revature.services.CategoryService;
 
 @RestController
-@RequestMapping("category")
+@RequestMapping("categories")
 public class CategoryController {
 	
 	private CategoryService cs;
