@@ -18,13 +18,21 @@ public class VisualizationServiceImpl implements VisualizationService{
 	}
 
 	@Override
-	public Visualization findVisualizationById(int id) {
-		return vd.getOne(id);
+	public Visualization findVisualizationByVisualizationName(String name) {
+		// TODO Auto-generated method stub
+		return vd.findVisualizationByVisualizationName(name);
+
 	}
 
 	@Override
 	public List<Visualization> getAllVisualization() {
 		return vd.findAll();
+	}
+
+	@Override
+	public Visualization createVisualization(Visualization v) {
+		// TODO Auto-generated method stub
+		return vd.save(v);
 	}
 
 }
