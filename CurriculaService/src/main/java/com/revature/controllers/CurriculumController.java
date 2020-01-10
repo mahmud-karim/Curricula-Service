@@ -16,7 +16,7 @@ import com.revature.models.Curriculum;
 import com.revature.services.CurriculumService;
 
 @RestController
-@RequestMapping("curriculum")
+@RequestMapping("curricula")
 public class CurriculumController {
 	private CurriculumService cs;
 	
@@ -25,17 +25,17 @@ public class CurriculumController {
 		this.cs = cs;
 	}
 	
-	@PostMapping("/create")
+	@PostMapping
 	public Curriculum create(@Valid @RequestBody Curriculum newCurriculum) {
 		return cs.createCurriculum(newCurriculum);
 	}
 	
-	@GetMapping("/get-all")
+	@GetMapping
 	public List<Curriculum> getAll() {
 		return cs.getAllCurriculum();
 	}
 	
-	@GetMapping("/get")
+	@GetMapping("/name")
 	public Curriculum getByName(@RequestParam String curriculumName) {
 		return cs.getByCurriculumName(curriculumName);
 	}

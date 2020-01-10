@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.revature.models.Curriculum;
-import com.revature.repository.CurriculumDao;
+import com.revature.repositories.CurriculumDao;
 
 @Service
 public class CurriculumServiceImpl implements CurriculumService {
