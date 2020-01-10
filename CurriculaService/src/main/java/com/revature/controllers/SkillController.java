@@ -17,7 +17,7 @@ import com.revature.models.Skill;
 import com.revature.services.SkillService;
 
 @RestController
-@RequestMapping("skill")
+@RequestMapping("skills")
 public class SkillController {
 	private SkillService ss;
 	
@@ -26,12 +26,12 @@ public class SkillController {
 		this.ss = ss;
 	}
 	
-	@GetMapping("/")
+	@GetMapping
 	public List<Skill> getAllSkills(){
 		return ss.getAllSkills();
 	}
 	
-	@PostMapping("/")
+	@PostMapping
 	public Skill saveNewSkill(@Valid @RequestBody Skill newSkill) {
 		return ss.saveNewSkill(newSkill);
 	}
