@@ -1,9 +1,10 @@
 package com.revature.models;
 
-import java.util.Set;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -24,25 +25,27 @@ public class Curriculum {
 	@Column(name = "curriculum_name")
 	private String curriculumName;
 	
-	@ManyToMany
+	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "curriculum_skill",
 			joinColumns = @JoinColumn(name = "curriculum", referencedColumnName = "curriculum_id"),
 			inverseJoinColumns = @JoinColumn(name = "skill", referencedColumnName = "skill_id"))
-	private Set<Skill> skills;
+	private List<Skill> skills;
 
 	public Curriculum() {
 		super();
 	}
 
-	public Curriculum(int curriculumId, String curriculumName) {
+	public Curriculum(int curriculumId, String curriculumName, List<Skill> skills) {
 		super();
 		this.curriculumId = curriculumId;
 		this.curriculumName = curriculumName;
+		this.skills = skills;
 	}
 
 	@Override
 	public String toString() {
-		return "Curriculum [curriculumId=" + curriculumId + ", curriculumName=" + curriculumName + "]";
+		return "Curriculum [curriculumId=" + curriculumId + ", curriculumName=" + curriculumName + ", skills=" + skills
+				+ "]";
 	}
 
 	@Override
@@ -51,6 +54,7 @@ public class Curriculum {
 		int result = 1;
 		result = prime * result + curriculumId;
 		result = prime * result + ((curriculumName == null) ? 0 : curriculumName.hashCode());
+		result = prime * result + ((skills == null) ? 0 : skills.hashCode());
 		return result;
 	}
 
@@ -70,6 +74,11 @@ public class Curriculum {
 				return false;
 		} else if (!curriculumName.equals(other.curriculumName))
 			return false;
+		if (skills == null) {
+			if (other.skills != null)
+				return false;
+		} else if (!skills.equals(other.skills))
+			return false;
 		return true;
 	}
 
@@ -87,5 +96,13 @@ public class Curriculum {
 
 	public void setCurriculumName(String curriculumName) {
 		this.curriculumName = curriculumName;
+	}
+
+	public List<Skill> getSkills() {
+		return skills;
+	}
+
+	public void setSkills(List<Skill> skills) {
+		this.skills = skills;
 	}
 }
