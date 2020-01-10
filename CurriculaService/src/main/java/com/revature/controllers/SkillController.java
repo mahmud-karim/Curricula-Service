@@ -17,7 +17,7 @@ import com.revature.models.Skill;
 import com.revature.services.SkillService;
 
 @RestController
-@RequestMapping("skill")
+@RequestMapping("skills")
 public class SkillController {
 	private SkillService ss;
 	
