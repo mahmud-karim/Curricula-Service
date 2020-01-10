@@ -81,7 +81,7 @@ public class Curriculum {
 			return false;
 		return true;
 	}
-
+  
 	public int getCurriculumId() {
 		return curriculumId;
 	}
@@ -105,4 +105,5 @@ public class Curriculum {
 	public void setSkills(List<Skill> skills) {
 		this.skills = skills;
 	}
+
 }
