@@ -17,7 +17,7 @@ public class Skill {
 	@Id
 	@Column(name="skill_id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int skillSerial;
+	private int skillId;
 	
 	@Column(name="skill_name")
 	private String skillName;
@@ -28,19 +28,18 @@ public class Skill {
 
 	public Skill() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
-	public Skill(int skillSerial, String skillName, Category category) {
+	public Skill(int skillId, String skillName, Category category) {
 		super();
-		this.skillSerial = skillSerial;
+		this.skillId = skillId;
 		this.skillName = skillName;
 		this.category = category;
 	}
 
 	@Override
 	public String toString() {
-		return "Skill [skillSerial=" + skillSerial + ", skillName=" + skillName + ", category=" + category + "]";
+		return "Skill [skillId=" + skillId + ", skillName=" + skillName + ", category=" + category + "]";
 	}
 
 	@Override
@@ -48,8 +47,8 @@ public class Skill {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((category == null) ? 0 : category.hashCode());
+		result = prime * result + skillId;
 		result = prime * result + ((skillName == null) ? 0 : skillName.hashCode());
-		result = prime * result + skillSerial;
 		return result;
 	}
 
@@ -67,22 +66,22 @@ public class Skill {
 				return false;
 		} else if (!category.equals(other.category))
 			return false;
+		if (skillId != other.skillId)
+			return false;
 		if (skillName == null) {
 			if (other.skillName != null)
 				return false;
 		} else if (!skillName.equals(other.skillName))
 			return false;
-		if (skillSerial != other.skillSerial)
-			return false;
 		return true;
 	}
 
-	public int getSkillSerial() {
-		return skillSerial;
+	public int getSkillId() {
+		return skillId;
 	}
 
-	public void setSkillSerial(int skillSerial) {
-		this.skillSerial = skillSerial;
+	public void setSkillId(int skillId) {
+		this.skillId = skillId;
 	}
 
 	public String getSkillName() {

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.revature.models.Category;
 import com.revature.models.Skill;
-import com.revature.repository.SkillDao;
+import com.revature.repositories.SkillDao;
 
 @Service
 public class SkillServiceImpl implements SkillService{
@@ -21,19 +21,16 @@ public class SkillServiceImpl implements SkillService{
 
 	@Override
 	public List<Skill> getAllSkills() {
-		// TODO Auto-generated method stub
 		return sd.findAll();
 	}
 
 	@Override
 	public Skill saveNewSkill(Skill newSkill) {
-		// TODO Auto-generated method stub
 		return sd.save(newSkill);
 	}
 
 	@Override
 	public List<Skill> getSkillsByCategory(Category categoryId) {
-		// TODO Auto-generated method stub
 		return sd.findSkillByCategory(categoryId);
 	}
 }
