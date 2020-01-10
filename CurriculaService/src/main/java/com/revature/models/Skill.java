@@ -28,7 +28,6 @@ public class Skill {
 
 	public Skill() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Skill(int skillSerial, String skillName, Category category) {

@@ -32,7 +32,6 @@ public class Visualization {
 
 	public Visualization() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public int getVisualizationId() {
