@@ -1,5 +1,7 @@
 package com.revature.services;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +23,11 @@ public class CategoryServiceImpl implements CategoryService{
 	@Override
 	public Category saveNewCategory(@Valid Category newCategory) {
 		return cd.save(newCategory);
+	}
+
+	@Override
+	public List<Category> getAllCategories() {
+		return cd.findAll();
 	}
 	
 
