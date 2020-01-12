@@ -1,8 +1,12 @@
 package com.revature.controllers;
 
 import static org.mockito.Mockito.when;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -38,5 +42,17 @@ public class CategoryControllerTests {
 		        .contentType(MediaType.APPLICATION_JSON)
 		        .content(objectMapper.writeValueAsString(mockCategory)))
 		        .andExpect(status().isOk());
+	}
+	
+	@Test
+	public void testGetAllCategories() throws Exception {
+		
+		List<Category> mockAllCategories = new ArrayList<>();
+		mockAllCategories.add(new Category(1, "Programing Language"));
+		when(cs.getAllCategories()).thenReturn(mockAllCategories);
+		
+		mockMvc.perform(get("/categories")
+				.contentType(MediaType.APPLICATION_JSON))
+				.andExpect(status().isOk());
 	}
 }
