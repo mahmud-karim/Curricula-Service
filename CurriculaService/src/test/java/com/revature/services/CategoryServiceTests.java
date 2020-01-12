@@ -3,6 +3,9 @@ package com.revature.services;
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.when;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -28,5 +31,18 @@ public class CategoryServiceTests {
 		when(cd.save(Mockito.any(Category.class))).thenReturn(expected);
 		
 		assertEquals(expected, cd.save(expected));
+	}
+	
+	@Test
+	public void testGetAllCategories() {
+		List<Category> mockAllCategories = new ArrayList<>();
+		mockAllCategories.add(new Category(1, "Category1"));
+		mockAllCategories.add(new Category(2, "Category2"));
+		
+		when(cd.findAll()).thenReturn(mockAllCategories);
+		
+		assertEquals(2,cd.findAll().size());
+		assertEquals("Category1", cd.findAll().get(0).getCategoryName());
+		
 	}
 }
