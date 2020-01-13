@@ -10,7 +10,7 @@ jobs:
           name: Analyze on SonarCloud
           command: |
            cd ./CurriculaService
-           mvn test 
+           mvn report
            mvn sonar:sonar
 
 workflows:
