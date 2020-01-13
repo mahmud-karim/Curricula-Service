@@ -17,7 +17,7 @@ import com.revature.models.Category;
 import com.revature.repositories.CategoryDao;
 
 @ExtendWith(MockitoExtension.class)
-public class CategoryServiceTests {
+public class CategoryServiceImplTests {
 	@Mock
 	private CategoryDao cd;
 	
