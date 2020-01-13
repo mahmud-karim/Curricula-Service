@@ -1,7 +1,7 @@
 
 spring:
   profiles:
-    active: ${DEPLOYMENT_STAGE:dev}
+    active: ${DEPLOYMENT_STAGE:uat}
   application:
     name: curricula-service
 
