@@ -18,7 +18,7 @@ import com.revature.models.Visualization;
 import com.revature.repositories.VisualizationDao;
 
 @ExtendWith(MockitoExtension.class)
-public class VisualizationServiceTests {
+public class VisualizationServiceImplTests {
 
 	@Mock
 	private VisualizationDao vd;

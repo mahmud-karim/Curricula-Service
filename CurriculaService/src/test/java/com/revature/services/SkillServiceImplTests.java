@@ -18,7 +18,7 @@ import com.revature.models.Skill;
 import com.revature.repositories.SkillDao;
 
 @ExtendWith(MockitoExtension.class)
-public class SkillServiceTests {
+public class SkillServiceImplTests {
 
 	@Mock
 	private SkillDao sd;

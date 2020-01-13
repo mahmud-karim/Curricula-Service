@@ -19,7 +19,7 @@ import com.revature.repositories.CurriculumDao;
 
 
 @ExtendWith(MockitoExtension.class)
-public class CurriculumServiceTests {
+public class CurriculumServiceImplTests {
 
 	@Mock
 	private CurriculumDao cd;
