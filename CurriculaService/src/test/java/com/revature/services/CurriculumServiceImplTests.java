@@ -35,8 +35,8 @@ public class CurriculumServiceImplTests {
 		
 		when(cd.findAll()).thenReturn(mockAllCurriculum);
 		
-		assertEquals(2, cd.findAll().size());
-		assertEquals("Curriculum1", cd.findAll().get(0).getCurriculumName());
+		assertEquals(2, categoryService.getAllCurriculum().size());
+		assertEquals("Curriculum1", categoryService.getAllCurriculum().get(0).getCurriculumName());
 	}
 	
 	@Test
@@ -45,6 +45,6 @@ public class CurriculumServiceImplTests {
 		
 		when(cd.save(Mockito.any(Curriculum.class))).thenReturn(mockCurriculum);
 		
-		assertEquals(mockCurriculum, cd.save(mockCurriculum));
+		assertEquals(mockCurriculum, categoryService.createCurriculum(mockCurriculum));
 	}
 }

@@ -35,7 +35,7 @@ public class SkillServiceImplTests {
 		when(sd.findAll()).thenReturn(mockAllSkills);
 		
 		assertEquals(2, sd.findAll().size());
-		assertEquals("Skill1", sd.findAll().get(0).getSkillName());
+		assertEquals("Skill1", skillService.getAllSkills().get(0).getSkillName());
 	}
 	
 	@Test
@@ -44,6 +44,6 @@ public class SkillServiceImplTests {
 		
 		when(sd.save(Mockito.any(Skill.class))).thenReturn(mockSkill);
 		
-		assertEquals(mockSkill, sd.save(mockSkill));
+		assertEquals(mockSkill, skillService.saveNewSkill(mockSkill));
 	}
 }
