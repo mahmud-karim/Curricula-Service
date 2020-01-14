@@ -35,7 +35,7 @@ public class VisualizationServiceImplTests {
 		when(vd.findAll()).thenReturn(mockAllVisualizations);
 		
 		assertEquals(2, vd.findAll().size());
-		assertEquals("Visualization1", vd.findAll().get(0).getVisualizationName());
+		assertEquals("Visualization1", visualizationService.getAllVisualization().get(0).getVisualizationName());
 	}
 	
 	@Test
@@ -44,7 +44,7 @@ public class VisualizationServiceImplTests {
 		
 		when(vd.findVisualizationByVisualizationName(Mockito.anyString())).thenReturn(mockVisualization);
 		
-		assertEquals(mockVisualization, vd.findVisualizationByVisualizationName("Visualization1"));
+		assertEquals(mockVisualization, visualizationService.findVisualizationByVisualizationName("Visualization1"));
 	}
 	
 	@Test
@@ -53,6 +53,6 @@ public class VisualizationServiceImplTests {
 
 		when(vd.save(Mockito.any(Visualization.class))).thenReturn(mockVisualization);
 		
-		assertEquals(mockVisualization, vd.save(mockVisualization));
+		assertEquals(mockVisualization, visualizationService.createVisualization(mockVisualization));
 	}
 }

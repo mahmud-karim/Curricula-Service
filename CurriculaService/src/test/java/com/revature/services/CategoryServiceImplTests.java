@@ -30,7 +30,7 @@ public class CategoryServiceImplTests {
 		
 		when(cd.save(Mockito.any(Category.class))).thenReturn(expected);
 		
-		assertEquals(expected, cd.save(expected));
+		assertEquals(expected, categoryService.saveNewCategory(expected));
 	}
 	
 	@Test
@@ -42,7 +42,7 @@ public class CategoryServiceImplTests {
 		when(cd.findAll()).thenReturn(mockAllCategories);
 		
 		assertEquals(2,cd.findAll().size());
-		assertEquals("Category1", cd.findAll().get(0).getCategoryName());
+		assertEquals("Category1", categoryService.getAllCategories().get(0).getCategoryName());
 		
 	}
 }
