@@ -47,12 +47,4 @@ public class VisualizationServiceImplTests {
 		assertEquals(mockVisualization, visualizationService.findVisualizationByVisualizationName("Visualization1"));
 	}
 	
-	@Test
-	public void testCreateVisualization() {
-		Visualization mockVisualization = new Visualization(1, "Visualization1", new ArrayList<Curriculum>());
-
-		when(vd.save(Mockito.any(Visualization.class))).thenReturn(mockVisualization);
-		
-		assertEquals(mockVisualization, visualizationService.createVisualization(mockVisualization));
-	}
 }

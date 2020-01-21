@@ -16,7 +16,7 @@ import com.revature.services.CategoryService;
 @RestController
 @RequestMapping("categories")
 public class CategoryController {
-	
+		
 	private CategoryService cs;
 	
 	@Autowired
