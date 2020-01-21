@@ -13,6 +13,7 @@ import com.revature.models.Curriculum;
 import com.revature.models.Skill;
 import com.revature.models.Visualization;
 import com.revature.repositories.VisualizationDao;
+
 @Service
 public class VisualizationServiceImpl implements VisualizationService{
 	private VisualizationDao vd;
@@ -53,4 +54,6 @@ public class VisualizationServiceImpl implements VisualizationService{
 			return vd.save(v);
 		}
 	}
+
 }
+

@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 import com.revature.models.Category;
 import com.revature.repositories.CategoryDao;
 
-
 @Service
 public class CategoryServiceImpl implements CategoryService{
 	private CategoryDao cd;
@@ -30,5 +29,4 @@ public class CategoryServiceImpl implements CategoryService{
 		return cd.findAll();
 	}
 	
-
 }

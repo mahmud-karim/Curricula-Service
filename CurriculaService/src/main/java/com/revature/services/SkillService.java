@@ -7,6 +7,9 @@ import javax.validation.Valid;
 import com.revature.models.Skill;
 
 public interface SkillService {
+	
 	public List<Skill> getAllSkills();
+	
 	public Skill saveNewSkill(@Valid Skill newSkill);
+	
 }
