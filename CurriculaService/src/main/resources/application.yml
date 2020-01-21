@@ -44,4 +44,4 @@ spring:
         default_schema: ${DB_SCHEMA:curricula_service}
     show-sql: false
 server:
-  port: 8080   
+  port: 8080  servlet:    context-path: /vis
