@@ -2,10 +2,12 @@
 spring:
   profiles:
     active: ${DEPLOYMENT_STAGE:dev}
+    magic-numbers:
+      categories: 12
   application:
     name: curricula-service
 
-  
+
     
 ---
 spring:
