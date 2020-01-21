@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.revature.models.Category;
 import com.revature.models.Skill;
 import com.revature.repositories.SkillDao;
 
@@ -27,10 +26,5 @@ public class SkillServiceImpl implements SkillService{
 	@Override
 	public Skill saveNewSkill(Skill newSkill) {
 		return sd.save(newSkill);
-	}
-
-	@Override
-	public List<Skill> getSkillsByCategory(Category categoryId) {
-		return sd.findSkillByCategory(categoryId);
 	}
 }

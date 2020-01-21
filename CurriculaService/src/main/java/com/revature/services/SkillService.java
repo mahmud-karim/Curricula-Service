@@ -4,11 +4,9 @@ import java.util.List;
 
 import javax.validation.Valid;
 
-import com.revature.models.Category;
 import com.revature.models.Skill;
 
 public interface SkillService {
 	public List<Skill> getAllSkills();
 	public Skill saveNewSkill(@Valid Skill newSkill);
-	public List<Skill> getSkillsByCategory(Category categoryId);
 }

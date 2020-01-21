@@ -11,7 +11,5 @@ public interface CurriculumService {
 	Curriculum createCurriculum(@Valid Curriculum newCurriculum);
 
 	List<Curriculum> getAllCurriculum();
-
-	Curriculum getByCurriculumName(String curriculumName);
 	
 }
