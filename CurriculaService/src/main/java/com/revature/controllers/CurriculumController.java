@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.models.Curriculum;
-import com.revature.models.Curriculum_DTO;
+import com.revature.models.CurriculumDTO;
 import com.revature.services.CurriculumService;
 
 @RestController
@@ -26,7 +26,7 @@ public class CurriculumController {
 	}
 	
 	@PostMapping
-	public Curriculum create(@Valid @RequestBody Curriculum_DTO newCurriculum) {
+	public Curriculum create(@Valid @RequestBody CurriculumDTO newCurriculum) {
 		Curriculum submitCurriculum = new Curriculum(newCurriculum.getCurriculumId(), newCurriculum.getCurriculumName(), newCurriculum.getSkills());
 		return cs.createCurriculum(submitCurriculum);
 	}

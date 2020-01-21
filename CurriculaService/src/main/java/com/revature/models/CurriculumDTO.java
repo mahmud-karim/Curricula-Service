@@ -2,15 +2,15 @@ package com.revature.models;
 
 import java.util.List;
 
-public class Curriculum_DTO {
+public class CurriculumDTO {
 	private int curriculumId;
 	private String curriculumName;
 	private List<Skill> skills;
 	
-	public Curriculum_DTO() {
+	public CurriculumDTO() {
 		super();
 	}
-	public Curriculum_DTO(int curriculumId, String curriculumName, List<Skill> skills) {
+	public CurriculumDTO(int curriculumId, String curriculumName, List<Skill> skills) {
 		super();
 		this.curriculumId = curriculumId;
 		this.curriculumName = curriculumName;
@@ -38,7 +38,7 @@ public class Curriculum_DTO {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Curriculum_DTO other = (Curriculum_DTO) obj;
+		CurriculumDTO other = (CurriculumDTO) obj;
 		if (curriculumId != other.curriculumId)
 			return false;
 		if (curriculumName == null) {

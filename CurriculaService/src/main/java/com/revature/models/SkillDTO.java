@@ -1,14 +1,14 @@
 package com.revature.models;
 
-public class Skill_DTO {
+public class SkillDTO {
 	private int skillId;
 	private String skillName;
 	private Category category;
 	
-	public Skill_DTO() {
+	public SkillDTO() {
 		super();
 	}
-	public Skill_DTO(int skillId, String skillName, Category category) {
+	public SkillDTO(int skillId, String skillName, Category category) {
 		super();
 		this.skillId = skillId;
 		this.skillName = skillName;
@@ -35,7 +35,7 @@ public class Skill_DTO {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Skill_DTO other = (Skill_DTO) obj;
+		SkillDTO other = (SkillDTO) obj;
 		if (category == null) {
 			if (other.category != null)
 				return false;

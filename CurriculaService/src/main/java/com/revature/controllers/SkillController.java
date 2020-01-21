@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.models.Skill;
-import com.revature.models.Skill_DTO;
+import com.revature.models.SkillDTO;
 import com.revature.services.SkillService;
 
 @RestController
@@ -31,7 +31,7 @@ public class SkillController {
 	}
 	
 	@PostMapping
-	public Skill saveNewSkill(@Valid @RequestBody Skill_DTO newSkill) {
+	public Skill saveNewSkill(@Valid @RequestBody SkillDTO newSkill) {
 		Skill submitSkill = new Skill(newSkill.getSkillId(), newSkill.getSkillName(), newSkill.getCategory());
 		return ss.saveNewSkill(submitSkill);
 	}

@@ -4,7 +4,9 @@ spring:
     active: ${DEPLOYMENT_STAGE:dev}
   application:
     name: curricula-service
-
+server:
+  servlet:
+    context-path: /vis
   
     
 ---
@@ -44,4 +46,4 @@ spring:
         default_schema: ${DB_SCHEMA:curricula_service}
     show-sql: false
 server:
-  port: 8080  servlet:    context-path: /vis
+  port: 8080

@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.models.Category;
-import com.revature.models.Category_DTO;
+import com.revature.models.CategoryDTO;
 import com.revature.services.CategoryService;
 
 @RestController
@@ -25,7 +25,7 @@ public class CategoryController {
 	}
 	
 	@PostMapping
-	public Category saveNewCategory( @RequestBody Category_DTO newCategory) {
+	public Category saveNewCategory( @RequestBody CategoryDTO newCategory) {
 		Category submitCategory = new Category(newCategory.getCategoryId(), newCategory.getCategoryName());
 		return cs.saveNewCategory(submitCategory);
 	}

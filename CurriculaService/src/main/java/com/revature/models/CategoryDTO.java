@@ -1,14 +1,14 @@
 package com.revature.models;
 
-public class Category_DTO {
+public class CategoryDTO {
 	private int categoryId;
 	private String categoryName;
 	
-	public Category_DTO() {
+	public CategoryDTO() {
 		super();
 	}
 
-	public Category_DTO(int categoryId, String categoryName) {
+	public CategoryDTO(int categoryId, String categoryName) {
 		super();
 		this.categoryId = categoryId;
 		this.categoryName = categoryName;
@@ -36,7 +36,7 @@ public class Category_DTO {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Category_DTO other = (Category_DTO) obj;
+		CategoryDTO other = (CategoryDTO) obj;
 		if (categoryId != other.categoryId)
 			return false;
 		if (categoryName == null) {
