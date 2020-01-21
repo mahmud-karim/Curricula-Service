@@ -35,7 +35,8 @@ public class CurriculumController {
 		return cs.getAllCurriculum();
 	}
 	
-	@GetMapping("/name")
+	@GetMapping("/name"
+			+ "")
 	public Curriculum getByName(@RequestParam String curriculumName) {
 		return cs.getByCurriculumName(curriculumName);
 	}
