@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.revature.models.Visualization;
 import com.revature.repositories.VisualizationDao;
+
 @Service
 public class VisualizationServiceImpl implements VisualizationService{
 	private VisualizationDao vd;
@@ -19,7 +20,6 @@ public class VisualizationServiceImpl implements VisualizationService{
 
 	@Override
 	public Visualization findVisualizationByVisualizationName(String name) {
-		// TODO Auto-generated method stub
 		return vd.findVisualizationByVisualizationName(name);
 
 	}
@@ -31,7 +31,6 @@ public class VisualizationServiceImpl implements VisualizationService{
 
 	@Override
 	public Visualization createVisualization(Visualization v) {
-		// TODO Auto-generated method stub
 		return vd.save(v);
 	}
 

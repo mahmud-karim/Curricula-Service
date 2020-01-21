@@ -7,7 +7,5 @@ import com.revature.models.Visualization;
 public interface VisualizationDao  extends JpaRepository<Visualization, Integer> {
 
 	Visualization findVisualizationByVisualizationName(String name);
-
-	
 	
 }
