@@ -29,9 +29,4 @@ public class CurriculumServiceImpl implements CurriculumService {
 		return cd.findAll();
 	}
 
-	@Override
-	public Curriculum getByCurriculumName(String curriculumName) {
-		return cd.findCurriculumByCurriculumName(curriculumName);
-	}
-
 }
