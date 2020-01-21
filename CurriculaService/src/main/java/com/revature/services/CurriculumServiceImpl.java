@@ -18,14 +18,12 @@ import com.revature.repositories.CurriculumDao;
 @Service
 public class CurriculumServiceImpl implements CurriculumService {
 	private CurriculumDao cd;
-	
-	@Autowired
-	public CurriculumServiceImpl(CurriculumDao cd) {
-		this.cd = cd;
-	}
-
-	@Autowired
 	private Config config;
+	@Autowired
+	public CurriculumServiceImpl(CurriculumDao cd, Config config) {
+		this.cd = cd;
+		this.config=config;
+	}	
 	
 	@Override
 	public Curriculum createCurriculum(@Valid Curriculum newCurriculum) {

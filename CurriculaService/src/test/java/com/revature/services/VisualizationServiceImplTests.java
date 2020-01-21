@@ -13,7 +13,10 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import com.revature.configuration.Config;
+import com.revature.models.Category;
 import com.revature.models.Curriculum;
+import com.revature.models.Skill;
 import com.revature.models.Visualization;
 import com.revature.repositories.VisualizationDao;
 
@@ -22,6 +25,9 @@ public class VisualizationServiceImplTests {
 
 	@Mock
 	private VisualizationDao vd;
+	
+	@Mock
+	private Config config;
 	
 	@InjectMocks
 	private VisualizationServiceImpl visualizationService;
@@ -47,4 +53,19 @@ public class VisualizationServiceImplTests {
 		assertEquals(mockVisualization, visualizationService.findVisualizationByVisualizationName("Visualization1"));
 	}
 	
+	@Test
+	public void testCreateVisualization() {
+		List<Skill> skills = new ArrayList<>();
+		skills.add(new Skill(1, "skill1", new Category(1, "cat1")));
+		List<Curriculum> curricula = new ArrayList<>();
+		curricula.add(new Curriculum(1, "curr1", skills));
+		Visualization mockVisualization = new Visualization(1, "Visualization1", curricula);
+
+		System.out.println(config);
+		
+		when(config.getCategories()).thenReturn(12);
+		when(vd.save(Mockito.any(Visualization.class))).thenReturn(mockVisualization);
+		
+		assertEquals(mockVisualization, visualizationService.createVisualization(mockVisualization));
+	}
 }

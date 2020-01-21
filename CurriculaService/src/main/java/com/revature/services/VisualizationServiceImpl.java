@@ -17,15 +17,13 @@ import com.revature.repositories.VisualizationDao;
 @Service
 public class VisualizationServiceImpl implements VisualizationService{
 	private VisualizationDao vd;
-	
+	private Config config;
 	@Autowired
-	public VisualizationServiceImpl(VisualizationDao vd) {
+	public VisualizationServiceImpl(VisualizationDao vd, Config config) {
 		this.vd=vd;
-		
+		this.config=config;
 	}
 	
-	@Autowired
-	private Config config;
 
 	@Override
 	public Visualization findVisualizationByVisualizationName(String name) {
