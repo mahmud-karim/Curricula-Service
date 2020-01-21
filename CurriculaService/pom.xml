@@ -20,7 +20,7 @@
 		<sonar.projectKey>revaturelabs_Curricula-Service</sonar.projectKey>
 		<sonar.organization>revaturelabs-screenforce</sonar.organization>
 		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
-		<sonar.exclusions>./src/main/java/com/revature/models/*</sonar.exclusions>
+		<sonar.exclusions>src/main/java/com/revature/models/*</sonar.exclusions>
 	</properties>
 
 	<dependencies>
