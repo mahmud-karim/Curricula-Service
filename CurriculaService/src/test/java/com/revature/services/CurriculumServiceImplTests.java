@@ -10,8 +10,11 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import com.revature.configuration.Config;
+import com.revature.models.Category;
 import com.revature.models.Curriculum;
 import com.revature.models.Skill;
 import com.revature.repositories.CurriculumDao;
@@ -22,6 +25,9 @@ public class CurriculumServiceImplTests {
 
 	@Mock
 	private CurriculumDao cd;
+	
+	@Mock
+	private Config config;
 	
 	@InjectMocks
 	private CurriculumServiceImpl categoryService;
@@ -38,4 +44,15 @@ public class CurriculumServiceImplTests {
 		assertEquals("Curriculum1", categoryService.getAllCurriculum().get(0).getCurriculumName());
 	}
 	
+	@Test
+	public void testCreateCurriculum() {
+		List<Skill> skills = new ArrayList<>();
+		skills.add(new Skill(1, "skill1", new Category(1, "cat1")));
+		Curriculum mockCurriculum = new Curriculum(1, "Curriculum1", skills);
+		
+		when(config.getCategories()).thenReturn(12);
+		when(cd.save(Mockito.any(Curriculum.class))).thenReturn(mockCurriculum);
+		
+		assertEquals(mockCurriculum, categoryService.createCurriculum(mockCurriculum));
+	}
 }

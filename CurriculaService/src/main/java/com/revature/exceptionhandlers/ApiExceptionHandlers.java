@@ -12,7 +12,7 @@ import com.revature.exceptions.TooManyCategoriesException;
 @ControllerAdvice
 public class ApiExceptionHandlers {
 	
-	public static Logger log = LogManager.getRootLogger();
+	public static final Logger log = LogManager.getRootLogger();
 	
 	@ExceptionHandler(value= {TooManyCategoriesException.class})
 	public ResponseEntity<Object> TooManyCategories(TooManyCategoriesException e){
