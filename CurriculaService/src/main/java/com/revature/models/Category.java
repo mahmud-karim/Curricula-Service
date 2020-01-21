@@ -9,13 +9,13 @@ import javax.persistence.Table;
 
 @Table(name = "category")
 @Entity
-public class Category{
-	
+public class Category {
+
 	@Id
 	@Column(name = "category_id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int categoryId;
-	
+
 	@Column(name = "category_name")
 	private String categoryName;
 
@@ -77,6 +77,5 @@ public class Category{
 			return false;
 		return true;
 	}
-	
 
 }
