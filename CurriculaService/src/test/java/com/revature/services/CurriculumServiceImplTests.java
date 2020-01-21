@@ -10,7 +10,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import com.revature.models.Curriculum;
@@ -39,12 +38,4 @@ public class CurriculumServiceImplTests {
 		assertEquals("Curriculum1", categoryService.getAllCurriculum().get(0).getCurriculumName());
 	}
 	
-	@Test
-	public void testCreateCurriculum() {
-		Curriculum mockCurriculum = new Curriculum(1, "Curriculum1", new ArrayList<Skill>());
-		
-		when(cd.save(Mockito.any(Curriculum.class))).thenReturn(mockCurriculum);
-		
-		assertEquals(mockCurriculum, categoryService.createCurriculum(mockCurriculum));
-	}
 }
