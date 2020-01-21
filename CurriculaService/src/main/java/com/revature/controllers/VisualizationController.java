@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.models.Visualization;
+import com.revature.models.VisualizationDTO;
 import com.revature.services.VisualizationService;
 
 @RestController
@@ -33,9 +34,10 @@ public class VisualizationController {
 	public Visualization findVisualizationByName(@PathVariable String name) {
 		return vs.findVisualizationByVisualizationName(name);
 	}
+	
 	@PostMapping
-	public Visualization createVisualization(@RequestBody Visualization v) {
-		return vs.createVisualization(v);
+	public Visualization createVisualization(@RequestBody VisualizationDTO newVisualization) {
+		Visualization submitVisualization = new Visualization(newVisualization.getVisualizationId(), newVisualization.getVisualizationName(), newVisualization.getCurricula());
+		return vs.createVisualization(submitVisualization);
 	}
-
 }

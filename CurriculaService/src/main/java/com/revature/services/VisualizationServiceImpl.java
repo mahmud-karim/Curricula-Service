@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.revature.models.Visualization;
 import com.revature.repositories.VisualizationDao;
+
 @Service
 public class VisualizationServiceImpl implements VisualizationService{
 	private VisualizationDao vd;
