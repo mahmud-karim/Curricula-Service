@@ -17,18 +17,18 @@ public class ApiExceptionHandlers {
 	@ExceptionHandler(value= {TooManyCategoriesException.class})
 	public ResponseEntity<Object> TooManyCategories(TooManyCategoriesException e){
 		log.catching(e);
-		return new ResponseEntity<Object>("Visualization contains too many categories", HttpStatus.BAD_REQUEST);
+		return new ResponseEntity<>("Visualization contains too many categories", HttpStatus.BAD_REQUEST);
 	}
 	
 	@ExceptionHandler(value = {NullPointerException.class})
 	public ResponseEntity<Object> DoesNotExist(NullPointerException e){
 		log.catching(e);
-		return new ResponseEntity<Object>("The Resource Does Not Exist", HttpStatus.NOT_FOUND);
+		return new ResponseEntity<>("The Resource Does Not Exist", HttpStatus.NOT_FOUND);
 	}
 	
 	@ExceptionHandler(value = {Throwable.class})
 	public ResponseEntity<Object> catchAll(Throwable e){
 		log.catching(e);
-		return new ResponseEntity<Object>("something Went Wrong", HttpStatus.INTERNAL_SERVER_ERROR);
+		return new ResponseEntity<>("something Went Wrong", HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 }
